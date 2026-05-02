@@ -60,7 +60,7 @@ Practical checklist for making AudienceMD public and preparing npm releases.
 - [ ] Run the GitHub Actions `Release` workflow with `dry_run: true` and review the output.
 - [ ] Publish npm packages by re-running the `Release` workflow with `dry_run: false`; the workflow uses npm Trusted Publishing/OIDC and does not require `NPM_TOKEN`.
 - [ ] Verify package pages on npm.
-- [ ] Verify install/usage snippets from a clean temporary directory, including `pnpm dlx @audiencemd/cli init ./my-project` and `pnpm dlx @audiencemd/cli validate ./my-project`.
+- [ ] Verify install/usage snippets from a clean temporary directory, including `pnpm --package=@audiencemd/cli dlx audience init ./my-project` and `pnpm --package=@audiencemd/cli dlx audience validate ./my-project`.
 - [ ] Announce only after GitHub, npm, and website checks are green.
 
 ## Rollback notes

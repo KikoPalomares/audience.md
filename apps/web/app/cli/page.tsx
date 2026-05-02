@@ -3,8 +3,8 @@ import Link from "next/link";
 import { CodeBlock } from "../../components/CodeBlock";
 
 const packageUsage = `# run without installing globally
-pnpm dlx @audiencemd/cli init ./my-project
-pnpm dlx @audiencemd/cli validate ./my-project
+pnpm --package=@audiencemd/cli dlx audience init ./my-project
+pnpm --package=@audiencemd/cli dlx audience validate ./my-project
 
 # npm/npx equivalent
 npx @audiencemd/cli init ./my-project
@@ -72,7 +72,7 @@ export default function CliPage() {
       <section className="mx-auto mt-14 max-w-6xl rounded-3xl border border-stone-900/10 bg-white/45 p-6 sm:p-8">
         <h2 className="text-2xl font-semibold tracking-tight text-stone-950">Install style</h2>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-stone-700 sm:text-base">
-          For one-off use, prefer <code className="rounded bg-stone-950/5 px-1.5 py-0.5 font-mono text-stone-900">pnpm dlx @audiencemd/cli</code> or <code className="rounded bg-stone-950/5 px-1.5 py-0.5 font-mono text-stone-900">npx @audiencemd/cli</code>. In this monorepo, <code className="rounded bg-stone-950/5 px-1.5 py-0.5 font-mono text-stone-900">pnpm exec audience</code> remains the development path for testing local changes before release.
+          For one-off use, prefer <code className="rounded bg-stone-950/5 px-1.5 py-0.5 font-mono text-stone-900">pnpm --package=@audiencemd/cli dlx audience</code> or <code className="rounded bg-stone-950/5 px-1.5 py-0.5 font-mono text-stone-900">npx @audiencemd/cli</code>. In this monorepo, <code className="rounded bg-stone-950/5 px-1.5 py-0.5 font-mono text-stone-900">pnpm exec audience</code> remains the development path for testing local changes before release.
         </p>
       </section>
     </main>

@@ -23,9 +23,9 @@ audiencemd validate [path]
 Run without installing globally:
 
 ```bash
-pnpm dlx @audiencemd/cli --help
-pnpm dlx @audiencemd/cli init ./tmp/my-project
-pnpm dlx @audiencemd/cli validate ./tmp/my-project
+pnpm --package=@audiencemd/cli dlx audience --help
+pnpm --package=@audiencemd/cli dlx audience init ./tmp/my-project
+pnpm --package=@audiencemd/cli dlx audience validate ./tmp/my-project
 ```
 
 npm/npx equivalent:

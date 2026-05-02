@@ -103,8 +103,8 @@ cp templates/AUDIENCE.md ./AUDIENCE.md
 Or use the published CLI package:
 
 ```bash
-pnpm dlx @audiencemd/cli init ./my-project
-pnpm dlx @audiencemd/cli validate ./my-project
+pnpm --package=@audiencemd/cli dlx audience init ./my-project
+pnpm --package=@audiencemd/cli dlx audience validate ./my-project
 ```
 
 npm/npx equivalent:
