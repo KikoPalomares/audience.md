@@ -72,7 +72,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {children}
         <footer className="border-t border-stone-900/10 px-5 py-10 text-sm text-stone-600">
           <div className="mx-auto flex max-w-6xl flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <p>AudienceMD is an open standard for audience context.</p>
+            <p>
+              An open standard by{" "}
+              <Link href="https://kikopalomares.com" className="underline decoration-stone-400 underline-offset-4 transition hover:text-stone-950">
+                Kiko Palomares
+              </Link>
+              .
+            </p>
             <p className="font-mono">v0.1 standard · Markdown-native · agent-readable</p>
           </div>
         </footer>
