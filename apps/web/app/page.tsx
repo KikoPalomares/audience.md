@@ -4,7 +4,7 @@ import { CodeBlock } from "../components/CodeBlock";
 const compactExample = `---
 audiencemd: "0.1"
 title: "Privacy-first photo backup"
-status: draft
+status: reviewed
 ---
 
 # AUDIENCE.md — Privacy-first photo backup
@@ -47,12 +47,12 @@ export default function HomePage() {
     <main>
       <section className="px-5 py-20 sm:py-28">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.03fr_0.97fr] lg:items-center">
-          <div>
-            <p className="mb-5 font-mono text-sm uppercase tracking-[0.25em] text-stone-500">AudienceMD v0.1 draft</p>
-            <h1 className="max-w-4xl text-5xl font-semibold tracking-[-0.05em] text-stone-950 sm:text-7xl">
+          <div className="min-w-0">
+            <p className="mb-5 font-mono text-sm uppercase tracking-[0.25em] text-stone-500">AudienceMD v0.1 standard</p>
+            <h1 className="max-w-4xl text-4xl font-semibold tracking-[-0.045em] text-stone-950 sm:text-6xl lg:text-7xl">
               AUDIENCE.md is the missing file for who something is for.
             </h1>
-            <p className="mt-7 max-w-2xl text-xl leading-8 text-stone-700">
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-stone-700 sm:text-xl">
               AudienceMD is an open Markdown standard for defining target audiences so humans and AI agents can adapt product, copy, content, design, docs, and decisions with shared context.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">

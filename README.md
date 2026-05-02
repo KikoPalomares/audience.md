@@ -32,7 +32,7 @@ AudienceMD gives teams and agents a shared source of truth that can live next to
 
 ## Current status
 
-This repository is a **v0.1 draft**. The priority is the standard itself: a clear spec, strong examples, a copyable template, and a minimal advisory JSON schema that tools can build on later.
+This repository contains the **AudienceMD v0.1 standard**. The priority is the standard itself: a clear spec, strong examples, a copyable template, and a minimal advisory JSON schema that tools can build on later.
 
 Tooling packages are scaffolded but intentionally not implemented yet. Phase 0 is spec-first, not parser-first.
 
@@ -40,8 +40,8 @@ Tooling packages are scaffolded but intentionally not implemented yet. Phase 0 i
 
 ```text
 AUDIENCE.md                      Audience definition for AudienceMD itself
-SPEC.md                          Draft v0.1 specification
-schema/audience.schema.json      Advisory structured schema draft
+SPEC.md                          v0.1 specification
+schema/audience.schema.json      Advisory structured schema
 templates/AUDIENCE.md            Copyable template
 examples/*/AUDIENCE.md           Example audience files across domains
 docs/                            Rationale, principles, versioning, contributing

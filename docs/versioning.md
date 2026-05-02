@@ -2,7 +2,7 @@
 
 AudienceMD uses semantic-ish versioning for the specification.
 
-The current draft version is `0.1`.
+The current version is `0.1`.
 
 ## Declaring a version
 
@@ -18,7 +18,7 @@ If no version is declared, tools may treat the file as an unversioned AudienceMD
 
 ## v0.x
 
-Draft phase. Section names, schema fields, examples, and validation guidance may change. Implementers should expect movement.
+Pre-1.0 phase. Section names, schema fields, examples, and validation guidance may still change as real adoption teaches what should stabilize. Implementers should expect movement.
 
 During v0.x:
 
@@ -36,7 +36,7 @@ A future v1.0 should mean:
 - documented extension mechanism
 - tested examples
 - validator behavior defined well enough for interoperability
-- a migration path from late v0.x drafts
+- a migration path from late v0.x versions
 
 ## Compatibility goals
 

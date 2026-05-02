@@ -1,6 +1,6 @@
 # Contributing
 
-AudienceMD is private during its initial drafting phase. When opened publicly, contributions should focus on making the standard clearer, broader, safer, and easier to adopt.
+AudienceMD is in its initial development phase. Contributions should focus on making the standard clearer, broader, safer, and easier to adopt.
 
 Useful contribution types:
 

@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { CodeBlock } from "../../components/CodeBlock";
 import { getTemplate } from "../../lib/content";
+
+export const metadata: Metadata = {
+  title: "Template",
+  description: "Copy the starter AUDIENCE.md template for products, repos, campaigns, communities, content channels, and AI-agent workflows.",
+  alternates: { canonical: "/template" }
+};
 
 export default function TemplatePage() {
   const template = getTemplate();

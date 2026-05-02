@@ -1,4 +1,4 @@
-# AudienceMD Specification v0.1 Draft
+# AudienceMD Specification v0.1
 
 ## 1. Purpose
 
@@ -54,7 +54,7 @@ Frontmatter field semantics:
 
 | Field | Required | Meaning |
 | --- | --- | --- |
-| `audiencemd` | Optional | AudienceMD spec version. For this draft, use the string `"0.1"`. |
+| `audiencemd` | Optional | AudienceMD spec version. For v0.1, use the string `"0.1"`. |
 | `title` | Optional | Human-readable title for the audience file. |
 | `status` | Optional | Suggested values: `draft`, `reviewed`, `validated`, `archived`. |
 | `last_reviewed` | Optional | ISO date (`YYYY-MM-DD`) of the last meaningful review. |
