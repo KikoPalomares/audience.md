@@ -3,6 +3,7 @@
 AudienceMD is an open, Markdown-native standard for describing a target audience in a way humans and AI agents can both understand and act on.
 
 - Website: <https://audiencemd.ai/>
+- Playground: <https://audiencemd.ai/playground>
 - Spec: [`SPEC.md`](SPEC.md)
 - Changelog: [`CHANGELOG.md`](CHANGELOG.md)
 - Security: [`SECURITY.md`](SECURITY.md)
@@ -86,7 +87,7 @@ The validator is intentionally small and advisory-minded: it enforces required c
 
 ## Quick start
 
-1. Copy `templates/AUDIENCE.md` into your project, campaign, product, content, or community workspace.
+1. Use the website playground or copy `templates/AUDIENCE.md` into your project, campaign, product, content, or community workspace.
 2. Keep the filename as `AUDIENCE.md` when possible.
 3. Fill it with concrete observations, not aspirational fluff.
 4. Separate evidence from assumptions.

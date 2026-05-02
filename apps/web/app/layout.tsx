@@ -46,6 +46,7 @@ export const viewport: Viewport = {
 
 const navItems = [
   ["Spec", "/spec"],
+  ["Playground", "/playground"],
   ["Template", "/template"],
   ["Examples", "/examples"],
   ["CLI", "/cli"],

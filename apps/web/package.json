@@ -11,6 +11,7 @@
     "check": "pnpm sync-content && tsc --noEmit"
   },
   "dependencies": {
+    "@audiencemd/validator": "workspace:*",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",

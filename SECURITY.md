@@ -10,9 +10,9 @@ After public launch, security fixes will normally target the latest published v0
 
 Please do not open a public issue for a suspected vulnerability.
 
-For now, report security concerns through Kiko Palomares' contact page:
+For now, report security concerns by email:
 
-- https://kikopalomares.com/contact
+- info@kikopalomares.com
 
 After the repository is made public, GitHub private vulnerability reporting or GitHub Security Advisories may become the preferred path if enabled for the project.
 

@@ -1,6 +1,6 @@
 # AudienceMD web
 
-Minimal Next.js documentation site for AudienceMD.
+Minimal Next.js documentation site and local-only AUDIENCE.md playground for AudienceMD.
 
 ## Local development
 
@@ -34,8 +34,8 @@ pnpm run check
 The site is intentionally static and lightweight. Before `dev`, `check`, or `build`, `scripts/sync-content.mjs` copies canonical repository content into `apps/web/content` when the repository root is available:
 
 - root `SPEC.md` for `/spec`
-- `templates/AUDIENCE.md` for `/template`
-- `examples/*/AUDIENCE.md` for `/examples`
+- `templates/AUDIENCE.md` for `/template` and `/playground`
+- `examples/*/AUDIENCE.md` for `/examples` and the playground sample
 
 The `apps/web/content` snapshot is committed so Vercel can also build when the project Root Directory is set to `apps/web`. No CMS, database, auth, or analytics are required.
 
