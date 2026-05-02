@@ -6,7 +6,20 @@ settings:
 
 importers:
 
-  .: {}
+  .:
+    devDependencies:
+      '@audiencemd/cli':
+        specifier: workspace:*
+        version: link:apps/cli
+      '@audiencemd/validator':
+        specifier: workspace:*
+        version: link:packages/validator
+
+  apps/cli:
+    dependencies:
+      '@audiencemd/validator':
+        specifier: workspace:*
+        version: link:../../packages/validator
 
   apps/web:
     dependencies:
@@ -44,6 +57,14 @@ importers:
       typescript:
         specifier: latest
         version: 6.0.3
+
+  packages/parser: {}
+
+  packages/validator:
+    dependencies:
+      '@audiencemd/parser':
+        specifier: workspace:*
+        version: link:../parser
 
 packages:
 

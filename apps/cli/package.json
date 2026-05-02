@@ -1,0 +1,22 @@
+{
+  "name": "@audiencemd/cli",
+  "version": "0.1.0",
+  "description": "Minimal AudienceMD command-line interface.",
+  "type": "module",
+  "bin": {
+    "audience": "src/cli.js",
+    "audiencemd": "src/cli.js"
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "check": "node --check src/cli.js",
+    "smoke": "node src/cli.js --help"
+  },
+  "dependencies": {
+    "@audiencemd/validator": "workspace:*"
+  },
+  "license": "MIT"
+}

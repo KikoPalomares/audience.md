@@ -1,0 +1,18 @@
+{
+  "name": "@audiencemd/parser",
+  "version": "0.1.0",
+  "description": "Dependency-free parser for AudienceMD Markdown documents.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "check": "node --check src/index.js"
+  },
+  "license": "MIT"
+}

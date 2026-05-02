@@ -6,10 +6,14 @@
   "license": "MIT",
   "packageManager": "pnpm@10.0.0",
   "scripts": {
-    "check": "node scripts/validate-audience-md.mjs && pnpm --filter @audiencemd/web check",
+    "check": "node scripts/validate-audience-md.mjs && pnpm --filter @audiencemd/parser check && pnpm --filter @audiencemd/validator check && pnpm --filter @audiencemd/cli check && pnpm --filter @audiencemd/web check",
     "validate:examples": "node scripts/validate-audience-md.mjs",
     "web:dev": "pnpm --filter @audiencemd/web dev",
     "web:build": "pnpm --filter @audiencemd/web build"
+  },
+  "devDependencies": {
+    "@audiencemd/cli": "workspace:*",
+    "@audiencemd/validator": "workspace:*"
   },
   "keywords": [
     "audience",

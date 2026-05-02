@@ -32,9 +32,7 @@ AudienceMD gives teams and agents a shared source of truth that can live next to
 
 ## Current status
 
-This repository contains the **AudienceMD v0.1 standard**. The priority is the standard itself: a clear spec, strong examples, a copyable template, and a minimal advisory JSON schema that tools can build on later.
-
-Tooling packages are scaffolded but intentionally not implemented yet. Phase 0 is spec-first, not parser-first.
+This repository contains the **AudienceMD v0.1 standard**. The priority is the standard itself: a clear spec, strong examples, a copyable template, a minimal advisory JSON schema, and small local tooling that can validate real `AUDIENCE.md` files without hiding the Markdown.
 
 ## Repository structure
 
@@ -45,11 +43,11 @@ schema/audience.schema.json      Advisory structured schema
 templates/AUDIENCE.md            Copyable template
 examples/*/AUDIENCE.md           Example audience files across domains
 docs/                            Rationale, principles, versioning, contributing
-packages/parser/                 Future Markdown parser package
-packages/validator/              Future validation package
+packages/parser/                 Dependency-free Markdown/frontmatter parser
+packages/validator/              Advisory v0.1 validator
 packages/generator/              Future generator package
-apps/cli/                        Future command-line app
-apps/web/                        Future documentation/site app
+apps/cli/                        Minimal command-line app
+apps/web/                        Documentation/site app
 ```
 
 ## Examples
@@ -71,13 +69,13 @@ Use them as concrete references for structure, specificity, evidence/assumption 
 
 ## Validation
 
-Run the lightweight repository check to validate the root file, template, and examples against the v0.1 canonical heading set and optional frontmatter guidance:
+Run the repository check to validate the root file, template, examples, package syntax, CLI syntax, and web app typecheck:
 
 ```bash
 pnpm run check
 ```
 
-The current validator is intentionally small and advisory-minded: it enforces required canonical sections, canonical order, and unknown top-level `##` headings for this repository's examples, without becoming a full parser package yet.
+The validator is intentionally small and advisory-minded: it enforces required canonical sections, canonical order, and unknown top-level `##` headings, with warnings for optional frontmatter guidance.
 
 ## Quick start
 
@@ -93,6 +91,15 @@ Example:
 ```bash
 cp templates/AUDIENCE.md ./AUDIENCE.md
 ```
+
+Or use the local CLI from this checkout:
+
+```bash
+pnpm exec audience init ./my-project
+pnpm exec audience validate ./my-project
+```
+
+The CLI package is not published to npm yet; the commands above are for local development in this repository.
 
 Then use it in prompts:
 

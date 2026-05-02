@@ -1,14 +1,39 @@
-# AudienceMD CLI
+# @audiencemd/cli
 
-Planned command-line app for working with `AUDIENCE.md` files.
+Minimal local CLI for creating and validating `AUDIENCE.md` files.
 
-Possible future commands:
+The package is part of the AudienceMD monorepo and is not published to npm yet.
+
+## Commands
 
 ```bash
-audiencemd init
-audiencemd validate
-audiencemd render
-audiencemd generate
+audience init [path] [--force]
+audience validate [path]
 ```
 
-No implementation is included in phase 0.
+Aliases:
+
+```bash
+audiencemd init [path]
+audiencemd validate [path]
+```
+
+## Local development usage
+
+From the repository root:
+
+```bash
+pnpm exec audience --help
+pnpm exec audience init ./tmp/my-project
+pnpm exec audience validate ./tmp/my-project
+```
+
+`init` copies the repository template from `templates/AUDIENCE.md` and refuses to overwrite an existing file unless `--force` is supplied.
+
+`validate` accepts either an `AUDIENCE.md` path or a directory containing `AUDIENCE.md`.
+
+## Checks
+
+```bash
+pnpm --filter @audiencemd/cli check
+```

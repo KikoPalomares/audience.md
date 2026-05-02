@@ -1,9 +1,19 @@
 # @audiencemd/validator
 
-Planned package for AudienceMD v0.1.
+Advisory validator for AudienceMD v0.1 documents.
 
-This package is intentionally a placeholder while the standard, examples, and schema mature.
+It validates the canonical required H2 sections, required-section order, unknown top-level H2 headings, and a small set of frontmatter sanity checks.
 
-## Intended role
+## Usage
 
-Validate AudienceMD documents against advisory v0.1 rules and report actionable warnings.
+```js
+import { validateAudienceMarkdown } from '@audiencemd/validator';
+
+const result = validateAudienceMarkdown(markdown, { filePath: 'AUDIENCE.md' });
+
+if (!result.valid) {
+  console.error(result.errors);
+}
+```
+
+The validator reuses `@audiencemd/parser` and intentionally stays small: it should catch structural drift without turning AudienceMD into a rigid form format.
