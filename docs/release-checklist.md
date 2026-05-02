@@ -22,6 +22,15 @@ Practical checklist for making AudienceMD public and preparing the v0.1 release.
   - [ ] `@audiencemd/validator`
   - [ ] `@audiencemd/cli`
 - [ ] Confirm npm organization/access exists for the `@audiencemd` scope.
+- [ ] Configure npm Trusted Publishing for each package before the first real publish:
+  - [ ] package: `@audiencemd/parser`
+  - [ ] package: `@audiencemd/validator`
+  - [ ] package: `@audiencemd/cli`
+  - [ ] GitHub owner: `KikoPalomares`
+  - [ ] GitHub repository: `audience.md`
+  - [ ] workflow file: `release.yml`
+  - [ ] environment name: `npm-release`
+  - [ ] branch/tag restrictions are enforced by the GitHub environment: `main` and `v*`.
 - [ ] Confirm package descriptions, keywords, repository directories, homepage, bugs, license, files, exports, and bins.
 - [ ] Run local package dry-runs:
   - [ ] `pnpm --filter @audiencemd/parser publish --dry-run --no-git-checks`
@@ -48,7 +57,8 @@ Practical checklist for making AudienceMD public and preparing the v0.1 release.
 - [ ] Verify README links and files render correctly while unauthenticated.
 - [ ] Create a `v0.1.0` git tag from the intended commit.
 - [ ] Create GitHub Release `v0.1.0` using the changelog notes.
-- [ ] Publish npm packages only after the dry-run output is reviewed.
+- [ ] Run the GitHub Actions `Release` workflow with `dry_run: true` and review the output.
+- [ ] Publish npm packages by re-running the `Release` workflow with `dry_run: false`; the workflow uses npm Trusted Publishing/OIDC and does not require `NPM_TOKEN`.
 - [ ] Verify package pages on npm.
 - [ ] Verify install/usage snippets from a clean temporary directory.
 - [ ] Announce only after GitHub, npm, and website checks are green.

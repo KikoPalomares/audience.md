@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   verify:
@@ -86,15 +87,13 @@ jobs:
       - name: Publish packages (dry run)
         if: ${{ inputs.dry_run }}
         run: |
-          pnpm --filter @audiencemd/parser publish --dry-run --no-git-checks
-          pnpm --filter @audiencemd/validator publish --dry-run --no-git-checks
-          pnpm --filter @audiencemd/cli publish --dry-run --no-git-checks
+          pnpm --filter @audiencemd/parser publish --dry-run --access public --no-git-checks
+          pnpm --filter @audiencemd/validator publish --dry-run --access public --no-git-checks
+          pnpm --filter @audiencemd/cli publish --dry-run --access public --no-git-checks
 
-      - name: Publish packages
+      - name: Publish packages with npm Trusted Publishing
         if: ${{ !inputs.dry_run }}
         run: |
-          pnpm --filter @audiencemd/parser publish --no-git-checks
-          pnpm --filter @audiencemd/validator publish --no-git-checks
-          pnpm --filter @audiencemd/cli publish --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          pnpm --filter @audiencemd/parser publish --provenance --access public --no-git-checks
+          pnpm --filter @audiencemd/validator publish --provenance --access public --no-git-checks
+          pnpm --filter @audiencemd/cli publish --provenance --access public --no-git-checks
