@@ -52,6 +52,23 @@ apps/cli/                        Future command-line app
 apps/web/                        Future documentation/site app
 ```
 
+## Examples
+
+The repository includes complete example `AUDIENCE.md` files across different domains:
+
+- [`examples/ai-agent/AUDIENCE.md`](examples/ai-agent/AUDIENCE.md) — AI agent for personal knowledge work
+- [`examples/community/AUDIENCE.md`](examples/community/AUDIENCE.md) — local repair and reuse community
+- [`examples/course/AUDIENCE.md`](examples/course/AUDIENCE.md) — practical course for first-time technical founders
+- [`examples/marketing-campaign/AUDIENCE.md`](examples/marketing-campaign/AUDIENCE.md) — privacy-first family photo backup campaign
+- [`examples/mobile-app/AUDIENCE.md`](examples/mobile-app/AUDIENCE.md) — medication routine mobile app
+- [`examples/newsletter/AUDIENCE.md`](examples/newsletter/AUDIENCE.md) — independent AI strategy newsletter
+- [`examples/open-source/AUDIENCE.md`](examples/open-source/AUDIENCE.md) — open-source developer CLI
+- [`examples/physical-product/AUDIENCE.md`](examples/physical-product/AUDIENCE.md) — ergonomic travel keyboard
+- [`examples/saas/AUDIENCE.md`](examples/saas/AUDIENCE.md) — SaaS onboarding analytics product
+- [`examples/youtube-channel/AUDIENCE.md`](examples/youtube-channel/AUDIENCE.md) — calm home cooking YouTube channel
+
+Use them as concrete references for structure, specificity, evidence/assumption separation, and non-manipulative audience guidance.
+
 ## Quick start
 
 1. Copy `templates/AUDIENCE.md` into your project, campaign, product, content, or community workspace.
