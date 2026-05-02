@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://audiencemd.ai/schema/audience.schema.json",
+  "title": "AudienceMD v0.1 Draft",
+  "description": "Advisory structured representation of an AUDIENCE.md document.",
+  "type": "object",
+  "required": ["audiencemd", "title", "summary", "primaryAudiences"],
+  "properties": {
+    "audiencemd": {
+      "type": "string",
+      "const": "0.1"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "reviewed", "validated", "archived"]
+    },
+    "lastReviewed": {
+      "type": "string",
+      "format": "date"
+    },
+    "owners": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "primaryAudiences": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/audienceSegment" }
+    },
+    "secondaryAudiences": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "jobsToBeDone": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "painsAnxietiesConstraints": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "motivations": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "decisionCriteria": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "languageAndTone": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "antiGoalsAndExclusions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "evidence": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evidenceItem" }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "openQuestions": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "$defs": {
+    "audienceSegment": {
+      "type": "object",
+      "required": ["name", "description"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1 },
+        "needs": { "type": "array", "items": { "type": "string" } },
+        "constraints": { "type": "array", "items": { "type": "string" } },
+        "currentAlternatives": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "evidenceItem": {
+      "type": "object",
+      "required": ["source", "finding"],
+      "properties": {
+        "source": { "type": "string", "minLength": 1 },
+        "finding": { "type": "string", "minLength": 1 },
+        "date": { "type": "string" },
+        "confidence": { "type": "string", "enum": ["low", "medium", "high"] }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

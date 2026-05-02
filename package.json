@@ -1,0 +1,18 @@
+{
+  "name": "audiencemd",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Open Markdown standard for defining target audiences for humans and AI agents.",
+  "license": "MIT",
+  "packageManager": "pnpm@10.0.0",
+  "scripts": {
+    "check": "node -e \"console.log('No automated checks yet. Spec-first v0.1 scaffold is valid.')\""
+  },
+  "keywords": [
+    "audience",
+    "markdown",
+    "standard",
+    "ai-agents",
+    "positioning"
+  ]
+}
