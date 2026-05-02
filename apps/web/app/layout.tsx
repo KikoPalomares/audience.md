@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import "./globals.css";
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <p className="font-mono">v0.1 standard · Markdown-native · agent-readable</p>
           </div>
         </footer>
+        <Analytics />
       </body>
     </html>
   );
