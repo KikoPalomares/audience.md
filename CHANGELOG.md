@@ -6,6 +6,14 @@ AudienceMD follows semantic-ish versioning during the pre-1.0 phase. See [`docs/
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-05-02
+
+### Fixed
+
+- CLI npm package now includes the canonical `AUDIENCE.md` template, so `audience init` works after a clean npm install.
+- CLI `--version` now reports the installed package version instead of a stale hardcoded value.
+- Release workflow now publishes only packages matching the requested release version, allowing CLI-only patch releases.
+
 ## [0.1.1] - 2026-05-02
 
 ### Fixed

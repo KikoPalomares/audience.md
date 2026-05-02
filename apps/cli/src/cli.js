@@ -4,6 +4,9 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validateAudienceMarkdown } from '@audiencemd/validator';
 
+const cliDir = path.dirname(fileURLToPath(import.meta.url));
+const packageRoot = path.resolve(cliDir, '..');
+
 const command = process.argv[2];
 const args = process.argv.slice(3);
 
@@ -14,7 +17,7 @@ try {
   }
 
   if (command === '--version' || command === '-v') {
-    console.log('0.1.0');
+    console.log(readPackageVersion());
     process.exit(0);
   }
 
@@ -129,7 +132,8 @@ function findTemplatePath() {
     current = parent;
   }
 
-  const cliDir = path.dirname(fileURLToPath(import.meta.url));
+  candidates.push(path.join(packageRoot, 'templates', 'AUDIENCE.md'));
+
   current = cliDir;
   while (true) {
     candidates.push(path.join(current, 'templates', 'AUDIENCE.md'));
@@ -147,6 +151,15 @@ function findTemplatePath() {
 
 function normalizeForMessages(filePath) {
   return filePath.split(path.sep).join('/');
+}
+
+function readPackageVersion() {
+  const packageJsonPath = path.join(packageRoot, 'package.json');
+  try {
+    return JSON.parse(fs.readFileSync(packageJsonPath, 'utf8')).version ?? 'unknown';
+  } catch {
+    return 'unknown';
+  }
 }
 
 function printHelp() {

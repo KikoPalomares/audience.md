@@ -78,22 +78,52 @@ jobs:
         env:
           RELEASE_VERSION: ${{ inputs.version }}
 
+      - name: Select packages for requested version
+        run: |
+          node <<'NODE' > /tmp/release-packages
+          const fs = require('node:fs');
+          const packages = [
+            ['@audiencemd/parser', 'packages/parser/package.json'],
+            ['@audiencemd/validator', 'packages/validator/package.json'],
+            ['@audiencemd/cli', 'apps/cli/package.json'],
+          ];
+          const targetVersion = process.env.RELEASE_VERSION;
+          for (const [name, manifestPath] of packages) {
+            const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+            if (manifest.version === targetVersion) console.log(name);
+          }
+          NODE
+          if [ ! -s /tmp/release-packages ]; then
+            echo "No packages have version ${RELEASE_VERSION}."
+            exit 1
+          fi
+          echo "Selected packages:"
+          cat /tmp/release-packages
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
+
       - name: Pack packages (dry run)
         run: |
-          pnpm --filter @audiencemd/parser exec npm pack --dry-run
-          pnpm --filter @audiencemd/validator exec npm pack --dry-run
-          pnpm --filter @audiencemd/cli exec npm pack --dry-run
+          while IFS= read -r package; do
+            pnpm --filter "$package" exec npm pack --dry-run
+          done < /tmp/release-packages
 
       - name: Publish packages (dry run)
         if: ${{ inputs.dry_run }}
         run: |
-          pnpm --filter @audiencemd/parser publish --dry-run --access public --no-git-checks
-          pnpm --filter @audiencemd/validator publish --dry-run --access public --no-git-checks
-          pnpm --filter @audiencemd/cli publish --dry-run --access public --no-git-checks
+          while IFS= read -r package; do
+            pnpm --filter "$package" publish --dry-run --access public --no-git-checks
+          done < /tmp/release-packages
 
       - name: Publish packages with npm Trusted Publishing
         if: ${{ !inputs.dry_run }}
         run: |
-          pnpm --filter @audiencemd/parser publish --provenance --access public --no-git-checks
-          pnpm --filter @audiencemd/validator publish --provenance --access public --no-git-checks
-          pnpm --filter @audiencemd/cli publish --provenance --access public --no-git-checks
+          while IFS= read -r package; do
+            if npm view "${package}@${RELEASE_VERSION}" version > /dev/null 2>&1; then
+              echo "${package}@${RELEASE_VERSION} is already published; skipping."
+            else
+              pnpm --filter "$package" publish --provenance --access public --no-git-checks
+            fi
+          done < /tmp/release-packages
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}

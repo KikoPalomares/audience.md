@@ -2,7 +2,7 @@
 
 Minimal local CLI for creating and validating `AUDIENCE.md` files.
 
-The package is part of the AudienceMD monorepo and is not published to npm yet.
+The package is part of the AudienceMD monorepo and is published to npm as `@audiencemd/cli`.
 
 ## Commands
 
@@ -28,7 +28,7 @@ pnpm exec audience init ./tmp/my-project
 pnpm exec audience validate ./tmp/my-project
 ```
 
-`init` copies the repository template from `templates/AUDIENCE.md` and refuses to overwrite an existing file unless `--force` is supplied.
+`init` copies the packaged canonical template from `templates/AUDIENCE.md` and refuses to overwrite an existing file unless `--force` is supplied.
 
 `validate` accepts either an `AUDIENCE.md` path or a directory containing `AUDIENCE.md`.
 
