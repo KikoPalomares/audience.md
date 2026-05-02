@@ -1,6 +1,6 @@
 # Release checklist
 
-Practical checklist for making AudienceMD public and preparing the v0.1 release.
+Practical checklist for making AudienceMD public and preparing npm releases.
 
 ## Before making the repository public
 
@@ -36,7 +36,7 @@ Practical checklist for making AudienceMD public and preparing the v0.1 release.
   - [ ] `pnpm --filter @audiencemd/parser publish --dry-run --no-git-checks`
   - [ ] `pnpm --filter @audiencemd/validator publish --dry-run --no-git-checks`
   - [ ] `pnpm --filter @audiencemd/cli publish --dry-run --no-git-checks`
-- [ ] Decide whether all three packages should publish in v0.1 or whether CLI should remain local until the UX is more stable.
+- [ ] Decide whether the release should publish all packages or only packages whose manifest version matches the requested workflow version.
 
 ## Verification gates
 
@@ -60,7 +60,7 @@ Practical checklist for making AudienceMD public and preparing the v0.1 release.
 - [ ] Run the GitHub Actions `Release` workflow with `dry_run: true` and review the output.
 - [ ] Publish npm packages by re-running the `Release` workflow with `dry_run: false`; the workflow uses npm Trusted Publishing/OIDC and does not require `NPM_TOKEN`.
 - [ ] Verify package pages on npm.
-- [ ] Verify install/usage snippets from a clean temporary directory.
+- [ ] Verify install/usage snippets from a clean temporary directory, including `pnpm dlx @audiencemd/cli init ./my-project` and `pnpm dlx @audiencemd/cli validate ./my-project`.
 - [ ] Announce only after GitHub, npm, and website checks are green.
 
 ## Rollback notes

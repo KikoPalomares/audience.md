@@ -100,14 +100,21 @@ Example:
 cp templates/AUDIENCE.md ./AUDIENCE.md
 ```
 
-Or use the local CLI from this checkout:
+Or use the published CLI package:
 
 ```bash
-pnpm exec audience init ./my-project
-pnpm exec audience validate ./my-project
+pnpm dlx @audiencemd/cli init ./my-project
+pnpm dlx @audiencemd/cli validate ./my-project
 ```
 
-The CLI package is not published to npm yet; the commands above are for local development in this repository. Package metadata is prepared for a future public v0.1 release, but publication is intentionally manual. See the website's `/cli` page or [`apps/cli/README.md`](apps/cli/README.md) for the current command reference.
+npm/npx equivalent:
+
+```bash
+npx @audiencemd/cli init ./my-project
+npx @audiencemd/cli validate ./my-project
+```
+
+The CLI is published as [`@audiencemd/cli`](https://www.npmjs.com/package/@audiencemd/cli). From a repository checkout, maintainers can still use `pnpm exec audience ...` for local development. See the website's `/cli` page or [`apps/cli/README.md`](apps/cli/README.md) for the current command reference.
 
 Then use it in prompts:
 
