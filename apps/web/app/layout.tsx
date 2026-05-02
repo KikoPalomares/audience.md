@@ -48,6 +48,7 @@ const navItems = [
   ["Spec", "/spec"],
   ["Template", "/template"],
   ["Examples", "/examples"],
+  ["CLI", "/cli"],
   ["GitHub", "https://github.com/KikoPalomares/audience.md"]
 ] as const;
 

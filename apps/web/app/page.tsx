@@ -59,6 +59,7 @@ export default function HomePage() {
               <Link className="rounded-full bg-stone-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-stone-800" href="/spec">View spec</Link>
               <Link className="rounded-full border border-stone-950/15 bg-white/60 px-5 py-3 text-sm font-medium text-stone-900 transition hover:border-stone-950/30" href="/template">Copy template</Link>
               <Link className="rounded-full border border-stone-950/15 bg-white/60 px-5 py-3 text-sm font-medium text-stone-900 transition hover:border-stone-950/30" href="/examples">See examples</Link>
+              <Link className="rounded-full border border-stone-950/15 bg-white/60 px-5 py-3 text-sm font-medium text-stone-900 transition hover:border-stone-950/30" href="/cli">Use CLI</Link>
               <Link className="rounded-full border border-stone-950/15 bg-white/60 px-5 py-3 text-sm font-medium text-stone-900 transition hover:border-stone-950/30" href="https://github.com/KikoPalomares/audience.md">GitHub</Link>
             </div>
           </div>
@@ -86,6 +87,15 @@ export default function HomePage() {
 
       <section className="px-5 py-16">
         <div className="mx-auto max-w-6xl">
+          <div className="mb-12 rounded-3xl border border-stone-900/10 bg-white/55 p-6 shadow-sm sm:p-8">
+            <p className="font-mono text-sm uppercase tracking-[0.2em] text-stone-500">Local tooling</p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-stone-950">A small CLI is included in the repository.</h2>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-stone-700 sm:text-base">
+              Create a starter file and validate AudienceMD documents from this checkout with <code className="rounded bg-stone-950/5 px-1.5 py-0.5 font-mono text-stone-900">pnpm exec audience init ./my-project</code> and <code className="rounded bg-stone-950/5 px-1.5 py-0.5 font-mono text-stone-900">pnpm exec audience validate ./my-project</code>. It is not published to npm yet.
+            </p>
+            <Link className="mt-5 inline-flex text-sm font-medium text-stone-950 underline underline-offset-4" href="/cli">Read the CLI notes</Link>
+          </div>
+
           <h2 className="text-3xl font-semibold tracking-tight text-stone-950">Fits next to the files teams and agents already read.</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-5">
             {relationships.map(([file, meaning]) => (

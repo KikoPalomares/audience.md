@@ -34,6 +34,8 @@ AudienceMD gives teams and agents a shared source of truth that can live next to
 
 This repository contains the **AudienceMD v0.1 standard**. The priority is the standard itself: a clear spec, strong examples, a copyable template, a minimal advisory JSON schema, and small local tooling that can validate real `AUDIENCE.md` files without hiding the Markdown.
 
+GitHub Actions runs the repository checks and web build on pushes and pull requests to `main`.
+
 ## Repository structure
 
 ```text
@@ -99,7 +101,7 @@ pnpm exec audience init ./my-project
 pnpm exec audience validate ./my-project
 ```
 
-The CLI package is not published to npm yet; the commands above are for local development in this repository.
+The CLI package is not published to npm yet; the commands above are for local development in this repository. See the website's `/cli` page or [`apps/cli/README.md`](apps/cli/README.md) for the current command reference.
 
 Then use it in prompts:
 
