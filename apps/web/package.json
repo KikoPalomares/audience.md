@@ -1,0 +1,28 @@
+{
+  "name": "@audiencemd/web",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "sync-content": "node scripts/sync-content.mjs",
+    "dev": "pnpm sync-content && next dev",
+    "build": "pnpm sync-content && next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "check": "pnpm sync-content && tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "autoprefixer": "latest",
+    "postcss": "latest",
+    "tailwindcss": "^3.4.17",
+    "typescript": "latest"
+  }
+}

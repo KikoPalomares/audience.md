@@ -6,8 +6,10 @@
   "license": "MIT",
   "packageManager": "pnpm@10.0.0",
   "scripts": {
-    "check": "node scripts/validate-audience-md.mjs",
-    "validate:examples": "node scripts/validate-audience-md.mjs"
+    "check": "node scripts/validate-audience-md.mjs && pnpm --filter @audiencemd/web check",
+    "validate:examples": "node scripts/validate-audience-md.mjs",
+    "web:dev": "pnpm --filter @audiencemd/web dev",
+    "web:build": "pnpm --filter @audiencemd/web build"
   },
   "keywords": [
     "audience",
