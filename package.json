@@ -6,7 +6,8 @@
   "license": "MIT",
   "packageManager": "pnpm@10.0.0",
   "scripts": {
-    "check": "node -e \"console.log('No automated checks yet. Spec-first v0.1 scaffold is valid.')\""
+    "check": "node scripts/validate-audience-md.mjs",
+    "validate:examples": "node scripts/validate-audience-md.mjs"
   },
   "keywords": [
     "audience",

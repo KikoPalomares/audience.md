@@ -69,6 +69,16 @@ The repository includes complete example `AUDIENCE.md` files across different do
 
 Use them as concrete references for structure, specificity, evidence/assumption separation, and non-manipulative audience guidance.
 
+## Validation
+
+Run the lightweight repository check to validate the root file, template, and examples against the v0.1 canonical heading set and optional frontmatter guidance:
+
+```bash
+pnpm run check
+```
+
+The current validator is intentionally small and advisory-minded: it enforces required canonical sections, canonical order, and unknown top-level `##` headings for this repository's examples, without becoming a full parser package yet.
+
 ## Quick start
 
 1. Copy `templates/AUDIENCE.md` into your project, campaign, product, content, or community workspace.
