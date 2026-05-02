@@ -1,0 +1,100 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to release, for example 0.1.0"
+        required: true
+        type: string
+      dry_run:
+        description: "Run npm publish in dry-run mode"
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verify release candidate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Enable Corepack
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.0.0 --activate
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run checks
+        run: pnpm run check
+
+      - name: Build web
+        run: pnpm web:build
+
+      - name: CLI smoke test
+        run: pnpm --filter @audiencemd/cli smoke
+
+  publish:
+    name: Publish npm packages
+    needs: verify
+    runs-on: ubuntu-latest
+    environment: npm-release
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - name: Enable Corepack
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.0.0 --activate
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Validate requested version
+        run: |
+          node -e "const v=process.env.RELEASE_VERSION; if(!/^\\d+\\.\\d+\\.\\d+(-[0-9A-Za-z.-]+)?$/.test(v)){throw new Error('Invalid release version: '+v)}"
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
+
+      - name: Pack packages (dry run)
+        run: |
+          pnpm --filter @audiencemd/parser exec npm pack --dry-run
+          pnpm --filter @audiencemd/validator exec npm pack --dry-run
+          pnpm --filter @audiencemd/cli exec npm pack --dry-run
+
+      - name: Publish packages (dry run)
+        if: ${{ inputs.dry_run }}
+        run: |
+          pnpm --filter @audiencemd/parser publish --dry-run --no-git-checks
+          pnpm --filter @audiencemd/validator publish --dry-run --no-git-checks
+          pnpm --filter @audiencemd/cli publish --dry-run --no-git-checks
+
+      - name: Publish packages
+        if: ${{ !inputs.dry_run }}
+        run: |
+          pnpm --filter @audiencemd/parser publish --no-git-checks
+          pnpm --filter @audiencemd/validator publish --no-git-checks
+          pnpm --filter @audiencemd/cli publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

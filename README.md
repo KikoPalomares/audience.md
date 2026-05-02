@@ -2,6 +2,11 @@
 
 AudienceMD is an open, Markdown-native standard for describing a target audience in a way humans and AI agents can both understand and act on.
 
+- Website: <https://audiencemd.ai/>
+- Spec: [`SPEC.md`](SPEC.md)
+- Changelog: [`CHANGELOG.md`](CHANGELOG.md)
+- Security: [`SECURITY.md`](SECURITY.md)
+
 The core artifact is an `AUDIENCE.md` file: a plain-text document that captures who something is for, what they need, what they believe, what constraints they have, how they decide, what evidence supports the definition, and how not to manipulate or misrepresent them.
 
 AudienceMD is designed for more than software repositories. It should work for:
@@ -101,7 +106,7 @@ pnpm exec audience init ./my-project
 pnpm exec audience validate ./my-project
 ```
 
-The CLI package is not published to npm yet; the commands above are for local development in this repository. See the website's `/cli` page or [`apps/cli/README.md`](apps/cli/README.md) for the current command reference.
+The CLI package is not published to npm yet; the commands above are for local development in this repository. Package metadata is prepared for a future public v0.1 release, but publication is intentionally manual. See the website's `/cli` page or [`apps/cli/README.md`](apps/cli/README.md) for the current command reference.
 
 Then use it in prompts:
 

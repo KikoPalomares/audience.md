@@ -108,8 +108,13 @@ function parseArgs(args) {
 
 function resolveAudiencePath(target) {
   const resolved = path.resolve(process.cwd(), target);
+
+  if (fs.existsSync(resolved)) {
+    if (fs.statSync(resolved).isFile()) return resolved;
+    return path.join(resolved, 'AUDIENCE.md');
+  }
+
   if (path.basename(resolved).toLowerCase() === 'audience.md') return resolved;
-  if (fs.existsSync(resolved) && fs.statSync(resolved).isFile()) return resolved;
   if (path.extname(resolved) === '.md') return resolved;
   return path.join(resolved, 'AUDIENCE.md');
 }

@@ -1,7 +1,7 @@
 {
   "name": "@audiencemd/cli",
   "version": "0.1.0",
-  "description": "Minimal AudienceMD command-line interface.",
+  "description": "Command-line tools for initializing and validating AudienceMD documents.",
   "type": "module",
   "bin": {
     "audience": "src/cli.js",
@@ -18,5 +18,25 @@
   "dependencies": {
     "@audiencemd/validator": "workspace:*"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "keywords": [
+    "audiencemd",
+    "audience",
+    "markdown",
+    "cli",
+    "validator",
+    "ai-agents"
+  ],
+  "homepage": "https://audiencemd.ai/cli",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KikoPalomares/audience.md.git",
+    "directory": "apps/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/KikoPalomares/audience.md/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }

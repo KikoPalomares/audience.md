@@ -1,7 +1,7 @@
 {
   "name": "@audiencemd/parser",
   "version": "0.1.0",
-  "description": "Dependency-free parser for AudienceMD Markdown documents.",
+  "description": "Dependency-free Markdown/frontmatter parser for AudienceMD documents.",
   "type": "module",
   "main": "src/index.js",
   "exports": {
@@ -14,5 +14,24 @@
   "scripts": {
     "check": "node --check src/index.js"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "keywords": [
+    "audiencemd",
+    "audience",
+    "markdown",
+    "parser",
+    "ai-agents"
+  ],
+  "homepage": "https://audiencemd.ai/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KikoPalomares/audience.md.git",
+    "directory": "packages/parser"
+  },
+  "bugs": {
+    "url": "https://github.com/KikoPalomares/audience.md/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }
