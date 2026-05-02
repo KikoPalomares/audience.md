@@ -2,15 +2,30 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://audiencemd.ai/schema/audience.schema.json",
   "title": "AudienceMD v0.1 Draft",
-  "description": "Advisory structured representation of an AUDIENCE.md document.",
+  "description": "Advisory structured representation of an AUDIENCE.md document. The Markdown file remains the source of truth.",
   "type": "object",
-  "required": ["audiencemd", "title", "summary", "primaryAudiences"],
+  "required": [
+    "audienceName",
+    "summary",
+    "primaryAudiences",
+    "jobsToBeDoneDesiredOutcomes",
+    "painsAnxietiesConstraints",
+    "motivations",
+    "decisionCriteria",
+    "languageAndTone",
+    "antiGoalsAndExclusions",
+    "evidence",
+    "assumptions",
+    "openQuestions"
+  ],
   "properties": {
     "audiencemd": {
+      "description": "AudienceMD spec version. Prefer the string value used in frontmatter.",
       "type": "string",
       "const": "0.1"
     },
     "title": {
+      "description": "Human-readable title for the file or project.",
       "type": "string",
       "minLength": 1
     },
@@ -26,54 +41,76 @@
       "type": "array",
       "items": { "type": "string", "minLength": 1 }
     },
+    "audienceName": {
+      "description": "Canonical section: Audience name.",
+      "type": "string",
+      "minLength": 1
+    },
     "summary": {
+      "description": "Canonical section: Summary.",
       "type": "string",
       "minLength": 1
     },
     "primaryAudiences": {
+      "description": "Canonical section: Primary audiences.",
       "type": "array",
       "minItems": 1,
       "items": { "$ref": "#/$defs/audienceSegment" }
     },
     "secondaryAudiences": {
+      "description": "Optional standard section: Secondary audiences.",
       "type": "array",
-      "items": { "type": "string" }
+      "items": { "type": "string", "minLength": 1 }
     },
-    "jobsToBeDone": {
+    "jobsToBeDoneDesiredOutcomes": {
+      "description": "Canonical section: Jobs to be done / desired outcomes.",
       "type": "array",
-      "items": { "type": "string" }
+      "items": { "type": "string", "minLength": 1 }
     },
     "painsAnxietiesConstraints": {
+      "description": "Canonical section: Pains, anxieties, and constraints.",
       "type": "array",
-      "items": { "type": "string" }
+      "items": { "type": "string", "minLength": 1 }
     },
     "motivations": {
+      "description": "Canonical section: Motivations.",
       "type": "array",
-      "items": { "type": "string" }
+      "items": { "type": "string", "minLength": 1 }
     },
     "decisionCriteria": {
+      "description": "Canonical section: Decision criteria.",
       "type": "array",
-      "items": { "type": "string" }
+      "items": { "type": "string", "minLength": 1 }
     },
     "languageAndTone": {
+      "description": "Canonical section: Language and tone.",
       "type": "array",
-      "items": { "type": "string" }
+      "items": { "type": "string", "minLength": 1 }
     },
     "antiGoalsAndExclusions": {
+      "description": "Canonical section: Anti-goals and exclusions.",
       "type": "array",
-      "items": { "type": "string" }
+      "items": { "type": "string", "minLength": 1 }
     },
     "evidence": {
+      "description": "Canonical section: Evidence.",
       "type": "array",
       "items": { "$ref": "#/$defs/evidenceItem" }
     },
     "assumptions": {
+      "description": "Canonical section: Assumptions.",
       "type": "array",
-      "items": { "type": "string" }
+      "items": { "type": "string", "minLength": 1 }
     },
     "openQuestions": {
+      "description": "Canonical section: Open questions.",
       "type": "array",
-      "items": { "type": "string" }
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "relatedFiles": {
+      "description": "Optional standard section: Related files.",
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
     }
   },
   "$defs": {
@@ -83,9 +120,18 @@
       "properties": {
         "name": { "type": "string", "minLength": 1 },
         "description": { "type": "string", "minLength": 1 },
-        "needs": { "type": "array", "items": { "type": "string" } },
-        "constraints": { "type": "array", "items": { "type": "string" } },
-        "currentAlternatives": { "type": "array", "items": { "type": "string" } }
+        "needs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "constraints": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "currentAlternatives": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
       },
       "additionalProperties": true
     },
