@@ -1,6 +1,6 @@
 {
   "name": "@audiencemd/validator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Advisory validator for AudienceMD v0.1 Markdown documents.",
   "type": "module",
   "main": "src/index.js",
@@ -15,7 +15,7 @@
     "check": "node --check src/index.js"
   },
   "dependencies": {
-    "@audiencemd/parser": "workspace:*"
+    "@audiencemd/parser": "^0.1.1"
   },
   "license": "MIT",
   "keywords": [

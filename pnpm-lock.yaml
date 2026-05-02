@@ -18,7 +18,7 @@ importers:
   apps/cli:
     dependencies:
       '@audiencemd/validator':
-        specifier: workspace:*
+        specifier: ^0.1.1
         version: link:../../packages/validator
 
   apps/web:
@@ -75,7 +75,7 @@ importers:
   packages/validator:
     dependencies:
       '@audiencemd/parser':
-        specifier: workspace:*
+        specifier: ^0.1.1
         version: link:../parser
 
 packages:

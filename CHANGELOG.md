@@ -6,6 +6,12 @@ AudienceMD follows semantic-ish versioning during the pre-1.0 phase. See [`docs/
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-05-02
+
+### Fixed
+
+- Published npm package metadata now uses semver ranges for internal AudienceMD dependencies instead of `workspace:*`, allowing clean installs from npm.
+
 ### Added
 
 - Public-release readiness documentation.

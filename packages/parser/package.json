@@ -1,6 +1,6 @@
 {
   "name": "@audiencemd/parser",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Dependency-free Markdown/frontmatter parser for AudienceMD documents.",
   "type": "module",
   "main": "src/index.js",
