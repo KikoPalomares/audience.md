@@ -12,7 +12,8 @@
     "README.md"
   ],
   "scripts": {
-    "check": "node --check src/index.js"
+    "check": "node --check src/index.js",
+    "test": "node --test test/*.test.js"
   },
   "dependencies": {
     "@audiencemd/parser": "^0.1.1"

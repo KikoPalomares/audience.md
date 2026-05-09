@@ -45,6 +45,7 @@ export function validateAudienceMarkdown(text, options = {}) {
 
   validateFrontmatter(document.frontmatter, filePath, errors, warnings);
   validateSections(document.sections, errors);
+  validatePlaceholders(document, warnings);
 
   return {
     valid: errors.length === 0,
@@ -121,6 +122,74 @@ export function validateFrontmatter(frontmatter, filePath, errors, warnings) {
 
   if (Array.isArray(scalars.owners) && scalars.owners.length === 0) {
     warnings.push('frontmatter owners is present but has no list entries');
+  }
+}
+
+const placeholderPatterns = [
+  {
+    name: 'uppercase TODO/TBD marker',
+    pattern: /\b(?:TODO|TBD)\b/,
+  },
+  {
+    name: 'template replacement phrase',
+    pattern: /\bReplace with\b/,
+  },
+  {
+    name: 'template description phrase',
+    pattern: /\bDescribe your audience\b/,
+  },
+];
+
+/**
+ * @param {ReturnType<typeof parseAudienceMarkdown>} document
+ * @param {string[]} warnings
+ */
+export function validatePlaceholders(document, warnings) {
+  for (const field of collectPlaceholderFields(document)) {
+    const match = placeholderPatterns.find(({ pattern }) => pattern.test(field.value));
+    if (match) {
+      warnings.push(`${field.label} appears to contain placeholder text (${match.name})`);
+    }
+  }
+}
+
+/**
+ * @param {ReturnType<typeof parseAudienceMarkdown>} document
+ * @returns {Array<{label: string, value: string}>}
+ */
+function collectPlaceholderFields(document) {
+  const fields = [];
+
+  if (document.h1) {
+    fields.push({ label: 'H1 heading', value: document.h1 });
+  }
+
+  if (document.frontmatter) {
+    for (const [key, value] of Object.entries(document.frontmatter.data)) {
+      collectStringValues(value, `frontmatter ${key}`, fields);
+    }
+  }
+
+  for (const section of document.sections) {
+    fields.push({ label: `section "${section.title}"`, value: section.content });
+  }
+
+  return fields;
+}
+
+/**
+ * @param {unknown} value
+ * @param {string} label
+ * @param {Array<{label: string, value: string}>} fields
+ */
+function collectStringValues(value, label, fields) {
+  if (typeof value === 'string') {
+    fields.push({ label, value });
+    return;
+  }
+
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => collectStringValues(item, `${label}[${index}]`, fields));
   }
 }
 
