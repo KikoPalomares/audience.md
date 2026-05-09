@@ -6,6 +6,12 @@ AudienceMD follows semantic-ish versioning during the pre-1.0 phase. See [`docs/
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-05-09
+
+### Fixed
+
+- Validator no longer treats lowercase Spanish `todo` as placeholder text while still warning for uppercase `TODO`/`TBD` markers.
+
 ## [0.1.2] - 2026-05-02
 
 ### Fixed
